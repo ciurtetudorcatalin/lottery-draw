@@ -4,6 +4,7 @@ import { environment } from 'environments/environment';
 import { interval, Observable } from 'rxjs';
 import { filter, map, take, tap } from 'rxjs/operators';
 import { Random } from 'random';
+import { TimestampedNumber } from '@core/types';
 
 @Injectable({
   providedIn: CoreModule,
@@ -38,9 +39,4 @@ export class NumberGeneratorService {
     );
   }
 
-}
-
-export interface TimestampedNumber {
-  number: number;
-  timestamp: number;
 }

@@ -9,7 +9,12 @@ export const environment = {
     defaultMin: 1,
     defaultMax: 50,
     defaultNumberCount: 5
-  }
+  },
 
+  // NumberStorageService defaults
+  numberStorage: {
+    cacheSize: 25,
+    storageEndpoint: 'api/storage'
+  }
 
 };
