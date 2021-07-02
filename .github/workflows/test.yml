@@ -1,0 +1,31 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.2.0
+        
+        # Used by Karma for testing
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@latest
+      
+      - name: install Angular CLI
+        run: npm install -g @angular/cli
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run tests
+        run: ng test --watch=false
+        
