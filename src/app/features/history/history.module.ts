@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HistoryConfigModule } from './history-config.module';
+import { HistoryConfigModule } from './config/history-config.module';
 
 
 @NgModule({

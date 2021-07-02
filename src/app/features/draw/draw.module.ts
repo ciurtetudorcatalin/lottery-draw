@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DrawConfigModule } from './draw-config.module';
+import { DrawConfigModule } from './config/draw-config.module';
 
 
 @NgModule({
