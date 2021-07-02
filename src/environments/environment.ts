@@ -6,7 +6,15 @@ export const environment = {
   production: false,
 
   // router extra options
-  enableTracing: true
+  enableTracing: true,
+
+  // NumberGeneratorService defaults
+  numberGenerator: {
+    defaultMin: 1,
+    defaultMax: 50,
+    defaultNumberCount: 5
+  }
+
 };
 
 /*
