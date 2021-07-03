@@ -8,7 +8,8 @@ import {
 } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { STORED_NUMBERS_KEY } from '../constants';
-import { TimestampedNumber } from '@core/services/number-generator/number-generator.service';
+import { TimestampedNumber } from '@core/types';
+
 
 @Injectable()
 export class GetInterceptor implements HttpInterceptor {
