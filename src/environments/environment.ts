@@ -22,7 +22,7 @@ export const environment = {
   },
 
   assetsProvider: {
-    root:''
+    root:'/assets'
   }
 
 };

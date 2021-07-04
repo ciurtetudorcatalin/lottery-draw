@@ -4,8 +4,8 @@ import { STORED_NUMBERS_KEY } from '@core/constants';
 import { CoreModule } from '@core/core.module';
 import { RequestStatus, TimestampedNumber } from '@core/types';
 import { environment } from 'environments/environment';
-import { fromEvent, Observable, Subject } from 'rxjs';
-import { bufferCount, filter, map, switchMap, take, tap } from 'rxjs/operators';
+import { fromEvent, Observable, of, Subject, throwError } from 'rxjs';
+import { bufferCount, delay, filter, map, switchMap, take, tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: CoreModule
@@ -59,7 +59,11 @@ export class NumberStorageService implements OnDestroy {
   }
 
   public getAllTimestampedNumbers(): Observable<TimestampedNumber[]> {
-    return this.getCacheFromRemote().pipe(map(requestedData => requestedData.concat(this.cache)));
+    return this.getCacheFromRemote()
+    .pipe(
+      map(requestedData => requestedData.concat(this.cache)),
+      delay(2000)
+      );
   }
 
 }
