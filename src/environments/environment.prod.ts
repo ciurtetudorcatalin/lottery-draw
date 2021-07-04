@@ -15,6 +15,10 @@ export const environment = {
   numberStorage: {
     cacheSize: 25,
     storageEndpoint: 'api/storage'
+  },
+
+  assetsProvider: {
+    root: ''
   }
 
 };
