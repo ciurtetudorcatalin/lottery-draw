@@ -11,15 +11,18 @@ import { STORED_NUMBERS_KEY } from '../constants';
 import { RequestStatus, TimestampedNumber } from '@core/types';
 
 @Injectable()
-export class PostInterceptor implements HttpInterceptor {
+export class PatchInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<TimestampedNumber[]>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return request.method === 'PATCH' ? this.storeRequest(request.body as TimestampedNumber[]) : next.handle(request);
   }
 
   private storeRequest(requestBody: TimestampedNumber[]): Observable<HttpEvent<RequestStatus>> {
-    const stringifiedRequestBody = JSON.stringify(requestBody);
-    localStorage.setItem(STORED_NUMBERS_KEY, stringifiedRequestBody);
+    const stringifiedCurrentStoredNumbers = localStorage.getItem(STORED_NUMBERS_KEY);
+    const parsedCurrentStoredNumbers = (stringifiedCurrentStoredNumbers !== null ? JSON.parse(stringifiedCurrentStoredNumbers) : []) as TimestampedNumber[];
+    const newStoredNumbers = parsedCurrentStoredNumbers.concat(requestBody);
+
+    localStorage.setItem(STORED_NUMBERS_KEY, JSON.stringify(newStoredNumbers));
     const requestStatus: RequestStatus = { status: 'success' }
     const response = new HttpResponse({ body: requestStatus });
     return of(response);

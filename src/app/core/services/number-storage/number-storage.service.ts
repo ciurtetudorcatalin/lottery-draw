@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
+import { STORED_NUMBERS_KEY } from '@core/constants';
 import { CoreModule } from '@core/core.module';
 import { RequestStatus, TimestampedNumber } from '@core/types';
 import { environment } from 'environments/environment';
-import { Observable, Subject } from 'rxjs';
-import { bufferCount, filter, map, switchMap, tap } from 'rxjs/operators';
+import { fromEvent, Observable, Subject } from 'rxjs';
+import { bufferCount, filter, map, switchMap, take, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: CoreModule
@@ -19,10 +20,11 @@ export class NumberStorageService implements OnDestroy {
 
   constructor(private httpClient: HttpClient) {
     this.initCacheObservable();
+    window.onbeforeunload = () => this.ngOnDestroy();
   }
 
   private sendCacheForStorage(data: TimestampedNumber[]): Observable<RequestStatus> {
-    return this.httpClient.patch<RequestStatus>(this.endpoint, JSON.stringify(data));
+    return this.httpClient.patch<RequestStatus>(this.endpoint, data);
   }
 
   private initCacheObservable() {
@@ -39,8 +41,13 @@ export class NumberStorageService implements OnDestroy {
     return this.httpClient.get<TimestampedNumber[]>(this.endpoint);
   }
 
+  // Hardcoding this because beacons are not getting intercepted by the HTTP Interceptors
   public ngOnDestroy(): void {
-    this.sendCacheForStorage(this.cache);
+    const stringifiedCurrentStoredNumbers = localStorage.getItem(STORED_NUMBERS_KEY);
+    const parsedCurrentStoredNumbers = (stringifiedCurrentStoredNumbers !== null ? JSON.parse(stringifiedCurrentStoredNumbers) : []) as TimestampedNumber[];
+    const newStoredNumbers = parsedCurrentStoredNumbers.concat(this.cache);
+
+    localStorage.setItem(STORED_NUMBERS_KEY, JSON.stringify(newStoredNumbers));
   }
 
   public storeTimestampedNumber(number: TimestampedNumber): void {
