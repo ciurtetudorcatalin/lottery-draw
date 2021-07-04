@@ -1,0 +1,15 @@
+.tab {
+  @apply tw-flex tw-flex-grow tw-cursor-pointer tw-h-full;
+  &:hover, &.active {
+    @apply tw-border-b-2 tw-border-solid tw-border-green-500
+  }
+  .tab-content {
+    @apply tw-flex tw-flex-col tw-items-center tw-m-auto;
+    a {
+      @apply tw-font-semibold;
+    }
+    fa-icon {
+      @apply tw-text-green-500;
+    }
+  }
+}
