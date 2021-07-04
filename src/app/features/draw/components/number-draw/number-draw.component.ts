@@ -1,6 +1,6 @@
 import { NumberStorageService } from '@core/services/number-storage/number-storage.service';
 import { NumberGeneratorService } from '@core/services/number-generator/number-generator.service';
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { UntilDestroy } from '@ngneat/until-destroy';
 import { of } from 'rxjs';
 import { tap, switchMap, map, concatMap, delay } from 'rxjs/operators';
@@ -16,11 +16,8 @@ export class NumberDrawComponent {
 
   public drawedNumbers: number[] = [];
 
-
-
   constructor(private numberGeneratorService: NumberGeneratorService,
-    private numberStorageService: NumberStorageService,
-    private changeDetector: ChangeDetectorRef) { }
+    private numberStorageService: NumberStorageService) { }
 
   public start(): void {
     of(null).pipe(
