@@ -1,12 +1,13 @@
 import { FaConfig, FaIconLibrary } from "@fortawesome/angular-fontawesome";
-import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import { faHistory, faPlay, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 const usedIcons: readonly IconDefinition[] = Object.freeze([
-
+  faHistory,
+  faPlay
 ]);
 
 
 export function configureFontAwesomeLibrary(library: FaIconLibrary, config: FaConfig) {
-  config.defaultPrefix = 'far';
+  config.defaultPrefix = 'fas';
   library.addIcons(...usedIcons);
 }

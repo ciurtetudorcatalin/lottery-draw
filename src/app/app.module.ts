@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/app/app.component';
 import { CoreModule } from './core/core.module';
 import { ConfigModule } from './config/config.module';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { TabComponent } from './components/tabs/tab.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TabsComponent,
+    TabComponent
   ],
   imports: [
     BrowserModule,
