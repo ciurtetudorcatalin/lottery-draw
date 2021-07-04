@@ -7,6 +7,7 @@
       "@core/*":["app/core/*"],
       "@draw/*":["app/features/draw/*"],
       "@history/*":["app/features/history/*"],
+      "@shared/*":["app/shared/*"],
     },
     "baseUrl": "src",
     "outDir": "./dist/out-tsc",

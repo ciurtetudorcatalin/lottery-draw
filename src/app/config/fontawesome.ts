@@ -1,9 +1,10 @@
 import { FaConfig, FaIconLibrary } from "@fortawesome/angular-fontawesome";
-import { faHistory, faPlay, IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import { faHistory, faPlay, faRedoAlt, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 const usedIcons: readonly IconDefinition[] = Object.freeze([
   faHistory,
-  faPlay
+  faPlay,
+  faRedoAlt
 ]);
 
 

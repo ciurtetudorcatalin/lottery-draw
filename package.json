@@ -24,6 +24,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@ngneat/tailwind": "^7.0.3",
     "@ngneat/until-destroy": "^8.0.4",
+    "loaders.css": "^0.1.2",
+    "ngx-loaders-css": "^2.0.0",
     "random": "^3.0.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",

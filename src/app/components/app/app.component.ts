@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
       <header>
         <app-tabs class="tw-block"></app-tabs>
       </header>
-      <main></main>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
     </div>
   `,
   styles: [`

@@ -16,7 +16,7 @@ const tabConfigurations: TabConfig[] = [{
 @Component({
   selector: 'app-tabs',
   template: `
-            <div class="tw-h-16 tw-shadow-lg tw-flex">
+            <div class="tw-h-16 lg:tw-h-[4.5rem] tw-shadow-lg tw-flex">
               <ng-container *ngFor="let config of this.tabConfigurations">
                 <app-tab class="tw-flex-grow" [config]="config"></app-tab>
               </ng-container>

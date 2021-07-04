@@ -1,0 +1,18 @@
+<div class="tw-h-full tw-w-full">
+  <ng-container *ngIf="this.timestampedNumbers$ | async as tsNumbers; else loadingOrError">
+    <div class="tw-container tw-p-6 tw-mx-auto tw-pt-10">
+      <app-history-table [data]="tsNumbers"></app-history-table>
+    </div>
+
+  </ng-container>
+</div>
+
+<ng-template #loadingOrError>
+  <div class="tw-h-full" *ngIf="this.isLoading; else error">
+    <app-loader></app-loader>
+  </div>
+</ng-template>
+
+<ng-template #error>
+  <app-error-prompt (retrySignal)="this.retry()"></app-error-prompt>
+</ng-template>

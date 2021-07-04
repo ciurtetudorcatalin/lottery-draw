@@ -20,4 +20,4 @@ export class AssetsProviderService {
   }
 }
 
-export type AssetDirectory = 'shared' | 'draw' | 'history';
+export type AssetDirectory = 'shared' | 'draw' | 'history' | 'prompts';

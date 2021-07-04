@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Number</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="this.sortedData.length>0;else emptyRow">
+      <tr *ngFor="let item of this.sortedData">
+        <td>{{item.number}}</td>
+        <td>{{item.timestamp | date}}</td>
+      </tr>
+    </ng-container>
+
+  </tbody>
+  <tfoot></tfoot>
+</table>
+
+<ng-template #emptyRow>
+  <tr>
+    <td colspan="2">
+      No numbers have been drew yet
+    </td>
+  </tr>
+</ng-template>
