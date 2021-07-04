@@ -4,7 +4,6 @@ import { Component, ChangeDetectionStrategy, Input, OnChanges, SimpleChanges } f
 @Component({
   selector: 'app-history-table',
   templateUrl: './history-table.component.html',
-  styleUrls: ['./history-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HistoryTableComponent implements OnChanges {

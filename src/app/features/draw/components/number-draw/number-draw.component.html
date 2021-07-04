@@ -1,0 +1,33 @@
+<div class="tw-w-full tw-h-full tw-flex tw-flex-col">
+  <div class="tw-m-auto tw-pb-60 ">
+    <button [disabled]="this.startBtnState === 'disabled'" (click)="this.start()"
+    [class.tw-border-grey-100]="this.startBtnState === 'disabled'"
+    [class.tw-border-green-500]="this.startBtnState !== 'disabled'"
+    [class.tw-cursor-not-allowed]="this.startBtnState === 'disabled'"
+    class="tw-h-80 tw-w-80 tw-rounded-full tw-border-8 tw-border-solid ">
+      <ng-container [ngSwitch]="this.startBtnState">
+        <ng-container *ngSwitchCase="'loaded'" [ngTemplateOutlet]="initialBtnContent"></ng-container>
+        <ng-container *ngSwitchCase="'disabled'" [ngTemplateOutlet]="disabledBtnContent"></ng-container>
+        <ng-container *ngSwitchCase="'finished'" [ngTemplateOutlet]="finishedBtnContent"></ng-container>
+      </ng-container>
+    </button>
+
+    <ul class="tw-flex tw-flex-row tw-mx-auto tw-justify-center tw-mt-8 tw-h-10 tw-w-80">
+      <li class="tw-mx-4 tw-text-4xl" *ngFor="let number of this.drawedNumbers">{{number}}</li>
+    </ul>
+  </div>
+
+</div>
+
+<ng-template #initialBtnContent>
+  <p class="tw-text-2xl tw-font-medium">Feeling Lucky ?</p>
+  <p class="tw-text-lg tw-font-medium tw-mt-4">Click me!</p>
+</ng-template>
+
+<ng-template #disabledBtnContent>
+  <p class="tw-text-2xl tw-font-medium">Please wait...</p>
+</ng-template>
+
+<ng-template #finishedBtnContent>
+  <p class="tw-text-2xl tw-font-medium">Click again to play!</p>
+</ng-template>
