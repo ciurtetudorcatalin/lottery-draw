@@ -24,6 +24,9 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@ngneat/tailwind": "^7.0.3",
     "@ngneat/until-destroy": "^8.0.4",
+    "loaders.css": "^0.1.2",
+    "ngx-loaders-css": "^2.0.0",
+    "random": "^3.0.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -37,6 +40,7 @@
     "@angular-eslint/template-parser": "12.2.0",
     "@angular/cli": "~12.1.1",
     "@angular/compiler-cli": "~12.1.1",
+    "@schematics/angular": "^12.1.1",
     "@tailwindcss/typography": "0.4.1",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",

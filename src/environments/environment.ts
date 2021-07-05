@@ -3,7 +3,28 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  // router extra options
+  enableTracing: true,
+
+  // NumberGeneratorService defaults
+  numberGenerator: {
+    defaultMin: 1,
+    defaultMax: 50,
+    defaultNumberCount: 5
+  },
+
+  // NumberStorageService defaults
+  numberStorage: {
+    cacheSize: 25,
+    storageEndpoint: 'api/storage'
+  },
+
+  assetsProvider: {
+    root:'/assets'
+  }
+
 };
 
 /*

@@ -1,0 +1,29 @@
+.tab {
+  @apply tw-flex tw-flex-grow tw-cursor-pointer tw-h-full;
+  &:hover,
+  &.active {
+    @apply tw-border-b-2 tw-border-solid tw-border-green-500;
+  }
+  .tab-content {
+    @apply tw-flex tw-flex-col tw-items-center tw-m-auto;
+    a {
+      @apply tw-font-semibold;
+    }
+    fa-icon {
+      @apply tw-text-green-500;
+    }
+  }
+}
+
+.btn {
+  @apply tw-font-medium tw-border-0 tw-uppercase;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+  padding: 0.625rem 1.5rem 0.5rem;
+  border-radius: 0.25rem;
+  &.btn-success {
+    @apply tw-bg-green-500 tw-text-white;
+  }
+  &.btn-primary {
+    @apply tw-bg-blue-500 tw-text-white;
+  }
+}
