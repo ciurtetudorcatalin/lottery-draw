@@ -6,15 +6,43 @@
     </tr>
   </thead>
   <tbody>
-    <ng-container *ngIf="this.sortedData.length>0;else emptyRow">
-      <tr *ngFor="let item of this.sortedData">
+    <ng-container *ngIf="this.data.length!==0;else emptyRow">
+      <tr *ngFor="let item of this.displayedData | async; let i = index"
+          [class.tw-border-t]="i%5===0 && i>0"
+          [class.tw-border-dashed]="i%5===0 && i>0"
+          [class.tw-border-green-500]="i%5===0 && i>0">
         <td>{{item.number}}</td>
-        <td>{{item.timestamp | date}}</td>
+        <td>{{item.timestamp | date:'medium'}}</td>
       </tr>
     </ng-container>
 
   </tbody>
-  <tfoot></tfoot>
+  <tfoot *ngIf="this.pageCount > 1" class="tw-border-t tw-border-solid tw-border-gray-200">
+    <tr>
+      <td colspan="2">
+        <div class="tw-w-full tw-flex tw-justify-end">
+          <fa-icon class="tw-mr-4 tw-cursor-pointer" icon="chevron-left"
+          (click)="this.currentPage = this.currentPage-1"
+          *ngIf="this.currentPage > 1"></fa-icon>
+
+          <ul class="tw-flex">
+            <ng-container *ngFor="let pageNum of this.pageList | async">
+              <li class="tw-mx-2 tw-px-3 tw-text-lg tw-rounded tw-cursor-pointer"
+              (click)="this.currentPage = pageNum"
+              [class.tw-text-white]="pageNum===this.currentPage"
+              [class.tw-shadow]="pageNum===this.currentPage"
+              [class.tw-bg-green-500]="pageNum===this.currentPage">{{pageNum}}</li>
+            </ng-container>
+
+          </ul>
+
+          <fa-icon class="tw-ml-4 tw-cursor-pointer" icon="chevron-right"
+          (click)="this.currentPage = this.currentPage+1"
+          *ngIf="this.currentPage < this.pageCount"></fa-icon>
+        </div>
+      </td>
+    </tr>
+  </tfoot>
 </table>
 
 <ng-template #emptyRow>

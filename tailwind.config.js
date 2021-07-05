@@ -12,7 +12,11 @@ module.exports = {
     },
     darkMode: false, // or 'media' or 'class'
     theme: {
-      extend: {},
+      extend: {
+        screens: {
+          'md-hg':{'raw':'(max-height: 768px)'}
+        }
+      },
     },
     variants: {
       extend: {},

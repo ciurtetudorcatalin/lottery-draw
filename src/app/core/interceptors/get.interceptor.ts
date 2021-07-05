@@ -19,7 +19,7 @@ export class GetInterceptor implements HttpInterceptor {
 
   }
   private handleRequestHere(request: HttpRequest<unknown>): Observable<HttpEvent<unknown>> {
-    const rawStoredData = localStorage.getItem(STORED_NUMBERS_KEY) ?? '';
+    const rawStoredData = localStorage.getItem(STORED_NUMBERS_KEY) ?? '[]';
     const parsedData = JSON.parse(rawStoredData) as TimestampedNumber;
     const response = new HttpResponse({ body: parsedData });
     return of(response);
