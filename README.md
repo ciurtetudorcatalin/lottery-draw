@@ -1,27 +1,15 @@
-# LotteryDraw
+# Lottery Draw Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+## Getting Started
 
-## Development server
+To start the application follow the steps below:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. clone the repository using `git clone https://github.com/ciurtetudorcatalin/lottery-draw.git`
+2. Move into the cloned folder `cd lottery-draw`
+3. Install dependencies dependencies `npm install`;
+4. Run the project locally using `ng serve`;
 
-## Code scaffolding
+## Description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This application - as the name suggests - simulates a lottery drawing service. 
+If you are feeling lucky, you can go to the `Let's play` tab and play the game. On the other hand, if you want to see a history of the draws, you can go to the `Draw History` tab.
