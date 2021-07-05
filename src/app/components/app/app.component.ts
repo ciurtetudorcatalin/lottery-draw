@@ -4,11 +4,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <div class='root-container'>
+    <div class='root-container '>
       <header>
         <app-tabs class="tw-block"></app-tabs>
       </header>
-      <main>
+      <main class="tw-overflow-auto">
         <router-outlet></router-outlet>
       </main>
     </div>
@@ -20,7 +20,7 @@ import { Component } from '@angular/core';
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: minmax(min-content,max-content) 1fr;
-
+        overflow: hidden;
       }
     `]
 })

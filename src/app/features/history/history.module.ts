@@ -1,3 +1,4 @@
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -17,7 +18,8 @@ import { PromptsModule } from '@shared/components/prompts/prompts.module';
     CommonModule,
     HistoryConfigModule,
     LoaderModule,
-    PromptsModule
+    FontAwesomeModule,
+    PromptsModule,
   ]
 })
 export class HistoryModule { }
